@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>save</title>
+</head>
+<body>
+<!--action 속성은 목적지(서버 주소), method 속성은 http request method(get, post) -> post 주소창이 보이지 않음-->
+<form action="/board/save" method="post" enctype="multipart/form-data"> <!-- enctype 미설정 시 controller 쪽으로 파일이 넘어가지 않음-->
+    writer: <input type="text" name = "boardWriter"><br>
+    pass: <input type="text" name ="boardPass"><br>
+    title <input type="text" name="boardTitle"><br>
+    contents: <textarea name="boardContents" cols ="30" rows="10"></textarea><br>
+    file: <input type="file" name="boardFile"><br>
+    <input type ="submit" value ="글작성">
+</form>
+
+
+
+</body>
+</html>
