@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang ="en" xmlns:th="http://www.thymeleaf.org"> <!--동적으로 데이터를 주입할 수 있게 해주는 템플릿 엔진-->
+<head>
+    <meta charset ="UTF-8">
+    <title>list</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>writer</th>
+        <th>date</th>
+        <th>hits</th>
+    </tr>
+    <tr th:each="board: ${boardList}"> <!--boardList가 반복 대상이 된다. controller에서 boardList를 반환하기 때문-->
+        <td th:text="${board.id}"></td>
+        <td><a th:href="@{|/board/${board.id}|}" th:text="${board.boardTitle}"></a></td> <!-- boardTitle로 넘겨주게 되면
+        겹치는 게 있을 수 있기 때문에 board.id값을 넘겨준다.-->
+<!--        <td><a th:href="@{/board/${board.id}}" th:text="${board.boardTitle}"></a></td>-->
+        <td th:text="${board.boardWriter}"></td>
+        <td th:text="*{#temporals.format(board.boardCreatedTime, 'yyyy-MM-dd HH:mm:ss')}"></td>
+        <td th:text="${board.boardHits}"></td>
+    </tr>
+</table>
+</body>
+</html>
